@@ -1,80 +1,144 @@
 import pandas as pd
 def preprocess_data(df):
-    """
-    Preprocess the dataset for EthiScore AI.
-    Returns:
-        X -> Features
-        y -> Target (None during prediction)
-    """
-    # Remove ID column
+
+    df = df.copy()
+
+    # Remove unnecessary columns
+
     if "id" in df.columns:
         df = df.drop(columns=["id"])
+
     # Feature Engineering
-    df["monthly_income"] = df["annual_income"] / 12
+
+    df["monthly_income"] = (
+        df["annual_income"] / 12
+    )
 
     df["estimated_debt"] = (
-        df["annual_income"] *
+        df["annual_income"]
+        *
         df["debt_to_income_ratio"]
     )
 
     df["loan_to_income_ratio"] = (
-        df["loan_amount"] /
-        df["annual_income"]
+        df["loan_amount"]
+        /
+        (df["annual_income"] + 1)
     )
+
 
     df["estimated_interest_cost"] = (
-        df["loan_amount"] *
-        df["interest_rate"] / 100
+        df["loan_amount"]
+        *
+        df["interest_rate"]
+        /
+        100
     )
 
+
     df["disposable_income_estimate"] = (
-        df["annual_income"] -
+        df["annual_income"]
+        -
         df["estimated_debt"]
     )
 
     df["affordability_index"] = (
-        df["disposable_income_estimate"] /
-        df["loan_amount"]
+        df["disposable_income_estimate"]
+        /
+        (df["loan_amount"] + 1)
     )
-    # Select Features
-    selected_columns = [
+
+    # New financial indicators
+
+    df["income_after_debt_ratio"] = (
+        df["disposable_income_estimate"]
+        /
+        (df["annual_income"] + 1)
+    )
+
+
+    df["credit_debt_score"] = (
+        df["credit_score"]
+        /
+        (df["debt_to_income_ratio"] + 0.01)
+    )
+
+    df["loan_pressure"] = (
+        df["loan_amount"]
+        /
+        (df["monthly_income"] + 1)
+    )
+
+
+    df["income_loan_ratio"] = (
+        df["annual_income"]
+        /
+        (df["loan_amount"] + 1)
+    )
+
+    # Features
+    features = [
+
         "annual_income",
+
         "monthly_income",
+
         "credit_score",
+
         "debt_to_income_ratio",
+
         "loan_amount",
+
         "interest_rate",
+
         "estimated_debt",
+
         "loan_to_income_ratio",
+
         "estimated_interest_cost",
+
         "disposable_income_estimate",
+
         "affordability_index",
+
+        "income_after_debt_ratio",
+
+        "credit_debt_score",
+
+        "loan_pressure",
+
+        "income_loan_ratio",
+
         "employment_status",
+
         "loan_purpose"
+
     ]
 
-    # Include target only if available (training mode)
     if "loan_paid_back" in df.columns:
-        selected_columns.append("loan_paid_back")
+        features.append("loan_paid_back")
 
-    df = df[selected_columns]
-    # Encode categorical variables
+    df = df[features]
+
+    # Encode categorical data
     df = pd.get_dummies(
         df,
         columns=[
             "employment_status",
             "loan_purpose"
         ],
-        drop_first=True
+        drop_first=False
     )
-    # Training Mode
+
+    # Training mode
     if "loan_paid_back" in df.columns:
 
-        X = df.drop(columns=["loan_paid_back"])
+        X = df.drop(
+            columns=["loan_paid_back"]
+        )
+
         y = df["loan_paid_back"]
 
         return X, y
-
-    # Prediction Mode
-
+    # Prediction mode
     return df, None
