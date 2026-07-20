@@ -19,3 +19,4 @@ threadpoolctl==3.6.0
 tqdm==4.68.4
 tzdata==2026.3
 uvicorn==0.51.0
+xgboost==3.3.0
