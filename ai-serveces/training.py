@@ -9,7 +9,7 @@ from sklearn.metrics import (
     roc_auc_score
 )
 from xgboost import XGBClassifier
-from preprocess import preprocess_data
+from app.preprocess import preprocess_data
 # Load Dataset
 BASE_DIR = os.path.dirname(
     os.path.abspath(__file__)
@@ -155,7 +155,19 @@ joblib.dump(
     model,
     MODEL_PATH
 )
+# Save feature names used during training
+FEATURES_PATH = os.path.join(
+    MODEL_DIR,
+    "feature_names.pkl"
+)
 
+joblib.dump(
+    list(X.columns),
+    FEATURES_PATH
+)
+
+print("Feature names saved:")
+print(FEATURES_PATH)
 print(
     "\nModel saved:"
 )
