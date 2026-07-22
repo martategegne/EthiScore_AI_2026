@@ -119,4 +119,3 @@ REST API for easy integration
 
 
 # pictures
-c:\Users\TOSHIBA\Downloads\demo pictures\p1.png
