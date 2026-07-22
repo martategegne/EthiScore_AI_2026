@@ -119,3 +119,36 @@ REST API for easy integration
 
 
 # pictures
+
+<img width="1021" height="680" alt="p1" src="https://github.com/user-attachments/assets/c25d5f04-2195-404d-b7a0-8a3691747643" />                
+
+
+<img width="1024" height="685" alt="p2" src="https://github.com/user-attachments/assets/da2b0658-7331-496e-ac1c-d7f4b9a98756" />                    
+
+
+
+<img width="1020" height="689" alt="p3" src="https://github.com/user-attachments/assets/381d92de-fd2e-4a96-be45-b244e0813f3b" />
+
+
+<img width="963" height="352" alt="p4" src="https://github.com/user-attachments/assets/e0178e36-ac79-4f41-8c4c-dd5aac2e39c3" />
+
+
+
+<img width="972" height="414" alt="p5" src="https://github.com/user-attachments/assets/ac172914-4f4c-427b-bd5f-f4694e09e8c9" />
+
+
+
+<img width="982" height="369" alt="p6" src="https://github.com/user-attachments/assets/122301dc-f8f8-4e41-806b-779c8588d1df" />
+
+
+
+<img width="1024" height="657" alt="p7" src="https://github.com/user-attachments/assets/e849eb93-4009-402c-aab7-af22e50c0f57" />
+
+
+
+<img width="1023" height="692" alt="p8" src="https://github.com/user-attachments/assets/eb02ce53-7e24-4b46-a5f8-ae8c7823bcc6" />
+
+
+<img width="1019" height="690" alt="p9" src="https://github.com/user-attachments/assets/f0dd26bc-ce07-46d0-bd30-d5087c35d2bf" />
+
+
