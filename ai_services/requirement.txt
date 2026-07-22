@@ -1,0 +1,30 @@
+click==8.4.2
+cloudpickle==3.1.2
+colorama==0.4.6
+h11==0.16.0
+joblib==1.5.3
+llvmlite==0.48.0
+narwhals==2.24.0
+numba==0.66.0
+numpy==2.4.6
+packaging==26.2
+pandas==3.0.3
+python-dateutil==2.9.0.post0
+scikit-learn==1.9.0
+scipy==1.18.0
+shap==0.52.0
+six==1.17.0
+slicer==0.0.8
+threadpoolctl==3.6.0
+tqdm==4.68.4
+tzdata==2026.3
+uvicorn==0.51.0
+xgboost==3.3.0
+shap==0.52.0
+fastapi==0.139.1
+pydantic==2.13.4
+
+Start the API
+From the ai-serveces directory run:
+
+uvicorn ai-serveces.app.main:app --reload
