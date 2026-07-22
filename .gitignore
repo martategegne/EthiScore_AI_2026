@@ -2,6 +2,6 @@
 .vscode/
 __pycache__/
 
-ai-serveces/data/train_featured.csv
+ai_services/data/train_featured.csv
 ai-serveces/model/
 *.pkl
